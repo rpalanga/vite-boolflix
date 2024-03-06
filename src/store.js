@@ -2,5 +2,11 @@ import { reactive  } from "vue";
 
 export const store = reactive({
 
-    filmlist:[]
+    filmlist:[],
+    filmSelected:"",
+    serieslist:[],
+    
+
+    
+
 });

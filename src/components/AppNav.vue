@@ -2,7 +2,14 @@
 import {store} from "../store.js";
 
 export default{
-    name:"AppNav"
+    name:"AppNav",
+
+    data(){
+        return{
+            store
+        }
+    }
+    
 }
 
 </script>
@@ -11,9 +18,9 @@ export default{
     <div class="container-fluid">
 
         <h1>Boolflix</h1>
-        <label id="search-bar" for="">
-            <input type="text" name="" id="">
-            <button>Cerca</button>
+        <label id="search-bar" for="" >
+            <input type="text" name="" id="" placeholder="Inserisci il film" v-model="this.store.filmSelected">
+            <button @click="$emit(`select`)" >Cerca</button>
 
         </label>
         
@@ -39,6 +46,20 @@ export default{
 
     #search-bar{
         margin-right: 20px;
+        
+        input{
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+        button{
+            padding: 10px;
+            margin-left: 5px;
+            border-radius: 10px;
+            background-color: crimson;
+            
+
+        }
     }
 }
 
