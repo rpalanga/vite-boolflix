@@ -16,8 +16,8 @@ export default{
 
 <template>
     <div class="container-fluid">
-
-        <h1>Boolflix</h1>
+        
+        <h1><small>"the"</small>Boolflix</h1>
         <label id="search-bar" for="" >
             <input type="text" name="" id="" placeholder="Inserisci il film" v-model="this.store.filmSelected">
             <button @click="$emit(`select`)" >Cerca</button>
@@ -40,8 +40,14 @@ export default{
 
     h1{
         color: red;
-        font-size: 40px;
+        font-size: 60px;
         margin-left: 15px;
+        
+        small{
+            margin-right: 10px;
+            font-size: 30px;
+
+        }
     }
 
     #search-bar{
@@ -57,6 +63,8 @@ export default{
             margin-left: 5px;
             border-radius: 10px;
             background-color: crimson;
+            font-weight: bold;
+            
             
 
         }

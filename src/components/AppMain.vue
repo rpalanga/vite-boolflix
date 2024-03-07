@@ -1,6 +1,6 @@
 <script>
 import {store} from "../store.js";
-import AppPlaybill from "./AppPlaybill.vue";
+// import AppPlaybill from "./AppPlaybill.vue";
 import AppPoster from "./AppPoster.vue"
 
 export default{
@@ -13,7 +13,7 @@ export default{
     },
     components:{
         AppPoster,
-        AppPlaybill
+        // AppPlaybill
     }
 }
 
@@ -33,9 +33,12 @@ export default{
         <hr>
 
         <ul id="series">
-            <AppPlaybill
-            v-for="Series in store.serieslist" :playbill="Series"
+            <AppPoster
+            v-for="Serie in store.serieslist" :poster="Serie"
             />
+            <!-- <AppPlaybill
+            v-for="Series in store.serieslist" :playbill="Series"
+            /> -->
         </ul>
 
     </div>
@@ -53,6 +56,8 @@ export default{
         // gap: 25px;
 
         margin-top: 30px;
+        
+
 
 }
 #series{
