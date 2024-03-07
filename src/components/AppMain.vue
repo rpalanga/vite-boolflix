@@ -22,6 +22,7 @@ export default{
 <template>
     <div class="container">
         <h1>Film:</h1>
+        <hr>
         <ul id="film">
             <AppPoster
             v-for="Movie in store.filmlist" :poster="Movie"
@@ -29,6 +30,8 @@ export default{
 
         </ul>
         <h1>Series:</h1>
+        <hr>
+
         <ul id="series">
             <AppPlaybill
             v-for="Series in store.serieslist" :playbill="Series"
@@ -47,7 +50,7 @@ export default{
         display: flex;
         flex-wrap: wrap;
     
-        gap: 25px;
+        // gap: 25px;
 
         margin-top: 30px;
 
@@ -57,7 +60,7 @@ export default{
         display: flex;
         flex-wrap: wrap;
     
-        gap: 25px;
+        // gap: 25px;
 
         margin-top: 30px;
 

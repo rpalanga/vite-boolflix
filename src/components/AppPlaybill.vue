@@ -27,6 +27,7 @@ export default {
     <li id="element2">
         <img :src="ShowPlaybill(playbill.poster_path)" alt="">
         <h3>{{ playbill.name }}</h3>
+        <h6>{{ playbill.original_name }}</h6>
         <span>{{ playbill.original_language }}</span>
         <small>{{ playbill.vote_count }}</small>
 
@@ -42,17 +43,23 @@ export default {
 #element2 {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    // gap: 20px;
 
-    width: calc(100% / 5 - 25px / 5 * 4);
+    width: calc(100% / 3);
 
     text-align: center;
     text-transform: uppercase;
+    h6{
+        color: red;
+    }
 
     img {
         width: 100%;
+        height: 490px;
         object-fit: cover;
         object-position: center;
+        border: 1px solid rgba($color: #ffffff, $alpha: 0.5);
+
 
     }
 }

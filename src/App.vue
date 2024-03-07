@@ -25,6 +25,8 @@ export default {
         
         axios.get("https://api.themoviedb.org/3/search/tv?api_key=7795c78756e9ca816b8f86914a27cd4c&query=" + this.store.filmSelected).
         then(res2 =>{
+        console.log(res2.data.results)
+
           this.store.serieslist=res2.data.results
         })
         
