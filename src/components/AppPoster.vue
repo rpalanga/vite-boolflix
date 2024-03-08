@@ -6,7 +6,7 @@ export default {
 
     data() {
         return {
-            store
+            store,
         }
     },
     props: {
@@ -17,20 +17,40 @@ export default {
             return `https://image.tmdb.org/t/p/w342${currentPoster}`
         },
 
-        getRating(score){
-            let currentRate = Math.round(this.poster.vote_average / 2);
-            return currentRate;
-            // let currentValue = (this.poster.vote_count / 5);
-
-            // let roundendValue = score / currentValue;
-            // let roundendVote = Math.round(roundendValue);
-
-            // return Math.max(5, Math.min(1, roundendVote))
-
-            
-            
+        getRating(score) {
+            let currentRate = Math.round((this.poster.vote_average / 2));
 
             console.log(currentRate)
+            
+            // if (currentRate >= 0){
+            //     currentRate = <i class="fa-regular fa-star"></i>;
+            // }
+            // altri esperimenti 
+            // let outputStar = [];
+
+            
+            // for (let i = currentRate; i >= 1; i--)
+            //     output.push('<i class="fa-regular fa-star"></i>&nbsp;');
+
+            
+            // if (i == .5){
+            //     output.push('<i class="fa-regular fa-star-half-stroke"></i>&nbsp;');
+            // } 
+                
+
+            // // Fill the empty stars
+            // for (let i = (5 - currentRate); i >= 1; i--)
+            //     output.push('<i class="fa-regular fa-star-half-stroke"></i>&nbsp;');
+
+            // return outputStar.join('');
+
+            return currentRate;
+
+
+
+
+
+
         }
     }
 
@@ -41,13 +61,17 @@ export default {
 
 <template>
 
-    <li id="element" >
+    <li id="element">
         <img :src="ShowPoster(poster.poster_path)" alt="">
-        <div class="overlay card" >
+        <div class="overlay card">
             <h3>{{ poster.title ? poster.title : poster.name }}</h3>
             <h5>{{ poster.original_title ? poster.original_title : poster.original_name }}</h5>
             <span>{{ poster.original_language }}</span>
-            <small >{{ getRating( poster.vote_average) }}</small>
+            <small>
+
+                <i v-for="n in 5" :class="{ 'fa-solid fa-star': n <= getRating(), 'fa-regular fa-star': n > getRating() }"></i>
+
+            </small>
             <h6>Plot:</h6>
             <hr>
             <p>{{ poster.overview }}</p>
@@ -83,7 +107,8 @@ export default {
     h5 {
         color: red;
     }
-    h6{
+
+    h6 {
         text-align: left;
         margin-bottom: 5px;
     }
@@ -95,27 +120,30 @@ export default {
         object-fit: cover;
         object-position: center;
         border: 1px solid rgba($color: #ffffff, $alpha: 0.3);
-        
+
 
     }
-    hr{
+
+    hr {
         margin-bottom: 10px;
     }
-    p{
+
+    p {
         font-size: small;
-        text-transform: capitalize ;
+        text-transform: capitalize;
         text-align: left;
 
     }
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
 }
 
 .overlay {
     position: absolute;
-    
+
     bottom: 0;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.8);
@@ -137,7 +165,8 @@ li:hover .overlay {
     opacity: 1;
 
 }
-li:hover{
+
+li:hover {
     transform: scale(1.2);
 
     z-index: 1;
