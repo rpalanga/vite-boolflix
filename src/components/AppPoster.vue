@@ -15,11 +15,23 @@ export default {
     methods: {
         ShowPoster(currentPoster) {
             return `https://image.tmdb.org/t/p/w342${currentPoster}`
-        }
+        },
 
-        // getFleg(currentFlag){
-        //     if()
-        // }
+        getRating(score){
+            let currentRate = Math.round(this.poster.vote_average / 2);
+            return currentRate;
+            // let currentValue = (this.poster.vote_count / 5);
+
+            // let roundendValue = score / currentValue;
+            // let roundendVote = Math.round(roundendValue);
+
+            // return Math.max(5, Math.min(1, roundendVote))
+
+            
+            
+
+            console.log(currentRate)
+        }
     }
 
 
@@ -33,9 +45,12 @@ export default {
         <img :src="ShowPoster(poster.poster_path)" alt="">
         <div class="overlay card" >
             <h3>{{ poster.title ? poster.title : poster.name }}</h3>
-            <h6>{{ poster.original_title ? poster.original_title : poster.original_name }}</h6>
+            <h5>{{ poster.original_title ? poster.original_title : poster.original_name }}</h5>
             <span>{{ poster.original_language }}</span>
-            <small>{{ poster.vote_count }}</small>
+            <small >{{ getRating( poster.vote_average) }}</small>
+            <h6>Plot:</h6>
+            <hr>
+            <p>{{ poster.overview }}</p>
 
         </div>
 
@@ -65,8 +80,12 @@ export default {
 
 
 
-    h6 {
+    h5 {
         color: red;
+    }
+    h6{
+        text-align: left;
+        margin-bottom: 5px;
     }
 
     img {
@@ -77,6 +96,15 @@ export default {
         object-position: center;
         border: 1px solid rgba($color: #ffffff, $alpha: 0.3);
         
+
+    }
+    hr{
+        margin-bottom: 10px;
+    }
+    p{
+        font-size: small;
+        text-transform: capitalize ;
+        text-align: left;
 
     }
 }
@@ -101,6 +129,8 @@ export default {
     padding: 20px;
     text-align: center;
     height: 100%;
+    overflow: scroll;
+
 }
 
 li:hover .overlay {
