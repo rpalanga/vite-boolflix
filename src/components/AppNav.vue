@@ -19,8 +19,8 @@ export default{
         
         <h1><small>"the"</small>Boolflix</h1>
         <label id="search-bar" for="" >
-            <input type="text" name="" id="" placeholder="Inserisci il film" v-model="this.store.filmSelected">
-            <button @click="$emit(`select`)" >Cerca</button>
+            <input type="text" name="" id="" placeholder="Cosa vuoi vedere?" v-model="this.store.filmSelected">
+            <button @click="$emit(`select`)" ><i class="fa-solid fa-magnifying-glass"></i></button>
 
         </label>
         
@@ -52,18 +52,22 @@ export default{
 
     #search-bar{
         margin-right: 20px;
+        display: flex;
+
         
         input{
-            padding: 10px;
+            padding: 10px 20px;
             border-radius: 10px;
 
         }
         button{
-            padding: 10px;
+            padding: 10px 20px;
             margin-left: 5px;
             border-radius: 10px;
             background-color: crimson;
-            font-weight: bold;
+            font-weight: bolder;
+            font-size: 15px;
+
             
             
 

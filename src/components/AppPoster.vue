@@ -21,34 +21,42 @@ export default {
             let currentRate = Math.round((this.poster.vote_average / 2));
 
             console.log(currentRate)
-            
-            // if (currentRate >= 0){
-            //     currentRate = <i class="fa-regular fa-star"></i>;
-            // }
-            // altri esperimenti 
-            // let outputStar = [];
-
-            
-            // for (let i = currentRate; i >= 1; i--)
-            //     output.push('<i class="fa-regular fa-star"></i>&nbsp;');
-
-            
-            // if (i == .5){
-            //     output.push('<i class="fa-regular fa-star-half-stroke"></i>&nbsp;');
-            // } 
-                
-
-            // // Fill the empty stars
-            // for (let i = (5 - currentRate); i >= 1; i--)
-            //     output.push('<i class="fa-regular fa-star-half-stroke"></i>&nbsp;');
-
-            // return outputStar.join('');
 
             return currentRate;
 
+        },
+        getFlag() {
+            let currentFlag = this.poster.original_language;
 
+            switch (this.poster.original_language) {
+                case "ja":
+                    currentFlag = "jp";
+                    break;
+                case "ko":
+                    currentFlag = "kr";
+                    break;
+                case "en":
+                    currentFlag = "us";
+                    break;
+                case "zh":
+                    currentFlag = "cn";
+                    break;
+                case "da":
+                    currentFlag = "dk";
+                    break;
+                case "cs":
+                    currentFlag = "cz"
+                    break;
+                case "uk":
+                    currentFlag = "gb"
+                    break;
+                case "sv":
+                    currentFlag = "se"
+                    break;
+                default:
+            }
 
-
+            return `https://flagcdn.com/16x12/${currentFlag}.png`
 
 
         }
@@ -66,10 +74,14 @@ export default {
         <div class="overlay card">
             <h3>{{ poster.title ? poster.title : poster.name }}</h3>
             <h5>{{ poster.original_title ? poster.original_title : poster.original_name }}</h5>
-            <span>{{ poster.original_language }}</span>
+            <div id="container-flag">
+                <img :src="getFlag(poster.original_language)" alt="" id="Flag">
+
+            </div>
             <small>
 
-                <i v-for="n in 5" :class="{ 'fa-solid fa-star': n <= getRating(), 'fa-regular fa-star': n > getRating() }"></i>
+                <i v-for="n in 5"
+                    :class="{ 'fa-solid fa-star': n <= getRating(), 'fa-regular fa-star': n > getRating() }"></i>
 
             </small>
             <h6>Plot:</h6>
@@ -139,6 +151,19 @@ export default {
 .card {
     display: flex;
     flex-direction: column;
+
+    #container-flag {
+        display: flex;
+        justify-content: center;
+
+        #Flag {
+            width: 30px;
+            height: 15px;
+            object-fit: cover;
+        }
+    }
+
+
 }
 
 .overlay {
@@ -170,5 +195,6 @@ li:hover {
     transform: scale(1.2);
 
     z-index: 1;
+    border-radius: 15px;
 }
 </style>
