@@ -146,6 +146,9 @@ export default {
         text-align: left;
 
     }
+    .fa-solid{
+        color: rgb(227, 0, 34);
+    }
 }
 
 .card {
@@ -183,6 +186,8 @@ export default {
     text-align: center;
     height: 100%;
     overflow: scroll;
+    
+
 
 }
 
@@ -195,6 +200,5 @@ li:hover {
     transform: scale(1.2);
 
     z-index: 1;
-    border-radius: 15px;
 }
 </style>

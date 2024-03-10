@@ -5,6 +5,7 @@ export const store = reactive({
     filmlist:[],
     filmSelected:"",
     serieslist:[],
+    filmSelezionato: 0
     
 
     
