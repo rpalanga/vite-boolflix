@@ -32,7 +32,12 @@ export default {
         
       })
 
-    }
+    },
+    showCast(){
+            axios.get("https://api.themoviedb.org/3/movie/${filmlist}/credits?api_key=7795c78756e9ca816b8f86914a27cd4c").then(res => {
+                console.log(res)
+            })
+        }
   }
 }
 

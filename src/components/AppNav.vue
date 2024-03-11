@@ -8,7 +8,30 @@ export default {
         return {
             store
         }
-    }
+    },
+    methods: {
+        // selectGeneres() {
+        //     https://api.themoviedb.org/3/genre/movie/list?api_key=7795c78756e9ca816b8f86914a27cd4c
+        //     let urlCard = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0";
+        //     //se ho l'archetipo
+        //     if (this.store.archtypeSelezionato != "0") {
+        //         urlCard = urlCard + "&archetype=" + this.store.archtypeSelezionato
+
+        //     }
+        //     console.log(urlCard.store)
+
+
+        //     axios.get(urlCard)
+        //         .then(res => {
+        //             console.log(res.data.data)
+        //             this.store.cards = res.data.data;
+
+        //             this.load = true;
+        //         })
+
+
+        // }
+    },
 
 }
 
@@ -22,8 +45,8 @@ export default {
             <div class="dropdown">
                 <button class="dropbtn">Seleziona la Categoria <i class="fa-solid fa-chevron-down"></i></button>
                 <ul class="dropdown-content">
-                    <li >Elemento</li>
-                    
+                    <li>Elemento</li>
+
                 </ul>
             </div>
 
@@ -55,13 +78,13 @@ export default {
         gap: 30px;
 
         .dropbtn {
-            background-color:  rgba(227, 0, 34 , 0.5);
+            background-color: rgba(227, 0, 34, 0.5);
             color: white;
             padding: 10px;
             font-size: 15px;
             border: none;
             cursor: pointer;
-            border-radius: 15px ;
+            border-radius: 15px;
 
         }
 
@@ -96,7 +119,7 @@ export default {
         }
 
         .dropdown:hover .dropbtn {
-            background-color:  rgb(227, 0, 34);
+            background-color: rgb(227, 0, 34);
         }
 
         h1 {

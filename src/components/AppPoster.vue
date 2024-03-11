@@ -20,7 +20,7 @@ export default {
         getRating(score) {
             let currentRate = Math.round((this.poster.vote_average / 2));
 
-            console.log(currentRate)
+            // console.log(currentRate)
 
             return currentRate;
 
@@ -60,6 +60,7 @@ export default {
 
 
         }
+        
     }
 
 
